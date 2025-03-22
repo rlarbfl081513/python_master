@@ -1,6 +1,8 @@
 import sys
 sys.stdin = open("input.txt")
 
+# recursion
+
 def cola(num):
     global cnt
 
