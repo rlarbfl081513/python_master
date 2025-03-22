@@ -136,7 +136,6 @@ for tc in range(1, t+1):
     # [ 0, 1, 2, 3, 4, 5, 6 ]
     parents = [ i for i in range(people_num) ]
     war_alli = []
-
     for_change = int(input())
     for i in range(for_change):
         war_alli.append(list(map(str,input().split())))
