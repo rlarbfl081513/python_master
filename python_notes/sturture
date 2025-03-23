@@ -1,0 +1,7 @@
+python-notes/
+├── basic.md              # 변수, 자료형, 연산자 등
+├── string.md             # 문자열 관련 함수들 (join, split, eval 등)
+├── list.md               # 리스트 함수, 슬라이싱, map/filter 등
+├── input-output.md       # input(), sys.stdin, 포맷팅 등
+├── function.md           # 함수 정의, 매개변수, lambda 등
+├── eval-exec.md          # eval(), exec() 관련 위험성과 사용법
