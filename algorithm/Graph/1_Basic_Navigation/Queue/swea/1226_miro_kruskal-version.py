@@ -1,10 +1,7 @@
 import sys
 sys.stdin = open("input.txt")
 
-
-import sys
-sys.stdin = open("input.txt")
-
+## gpt로 다시 쓴 코드 정답 코드
 def find_set(x):
     if parents[x] != x:
         parents[x] = find_set(parents[x])
@@ -49,6 +46,9 @@ for tc in range(1, t+1):
 
 
 # 내가 시도했지만 망한 코드
+# 망한이유
+    # 유니온파인드는 그냥 다 하나의 집합으로 넣어버리는거임. 그래서 내가 인접행렬로 0이되는 좌표값들로 유니온파인드를 한다는건 그냥 주어진 값들을 하나의 부모 만든다는거임
+    # 그런데 이 문제는 델타를 통해 인접한 좌표에서 0인곳들과 연결을 지어야 하기에 근데 그런 구현없이 그냥 좌표값들을 다 이어지게 만든거니까 답이 그냥 다 연결되어있다고 나옴거임 --> 내가다 연결시킨거니까 당연한 결과임 , 오히려 연결안된다고 나오는게 이상한거임
 # # 기본 유니온파인드 코드
 # def find_set(x):
 #     if parents[x] == x:
