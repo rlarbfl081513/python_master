@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("input.txt")
+sys.stdin = open("../input.txt")
 
 # 16*16 행렬의 미로
 # 읜색은 길 노랑은 벽

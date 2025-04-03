@@ -1,15 +1,20 @@
 import sys
-sys.stdin = open("input.txt")
+sys.stdin = open("../input.txt")
 
 ## 재귀를 이용한 DFS로 풀기
 
-# 상, 하, 좌, 우 방향 정의
+# 함수내에서 true false를 리턴값으로 쓴 이유
+# 재귀를 통해 dfs를 구현, 가다가가다가 도착지점에 갔을때 바로 true를 반환해야 그 값이 위로 올라가고 최종적으로 최초에 호출된 함수의 반환값도 true가 되어 프린트의 조건문을 통해 답이 출력된다.
+# 리턴 트루가 없으면 도착했는지 알 수 없음, 결국 fasle를 리턴해서 실패로 여김
+# 아님 리턴값 없이 플래그를 사용해서 할 수도 있음
+
+# 델타 정의
 dx = [-1, 1, 0, 0]  # 상, 하, 좌, 우 (행 기준)
 dy = [0, 0, -1, 1]  # 상, 하, 좌, 우 (열 기준)
 
 def dfs_miro(x, y):
     # 도착점에 도달하면 True를 반환
-    if (x, y) == (13, 13):
+    if arr[x][y] == 3:
         return True
 
     # 방문 표시
@@ -19,17 +24,17 @@ def dfs_miro(x, y):
     for direction in range(4):
         nx, ny = x + dx[direction], y + dy[direction]
 
-        # 유효한 범위인지 체크 (16x16 범위 안에서)
+        # 범위확인
         if 0 <= nx < 16 and 0 <= ny < 16:
-            # 벽이 아닌 곳이고 아직 방문하지 않았다면
+            # 방문안했고 갈수 있는 곳
             if arr[nx][ny] != 1 and visited[nx][ny] == 0:
-                if dfs_miro(nx, ny):  # 재귀적으로 탐색
+                if dfs_miro(nx, ny):  # 재귀
                     return True
 
     return False
 
 # 테스트 케이스
-t = 1
+t = 10
 for tc in range(1, 1 + t):
     n = int(input())  # 테스트 케이스마다 크기를 입력받음
     arr = [list(map(int, list(input()))) for _ in range(16)]  # 미로 입력 받음

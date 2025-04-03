@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("input.txt")
+sys.stdin = open("../input.txt")
 
 ## gpt로 다시 쓴 코드 정답 코드
 def find_set(x):
