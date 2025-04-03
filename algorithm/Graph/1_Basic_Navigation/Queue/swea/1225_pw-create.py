@@ -39,8 +39,28 @@ from collections import deque
 
 
 ## 재귀로 풀기
+## 굳이 움직임을 만들지 않고 그냥 차례대로 빼면서 하다가 0이 나오거나 0보다 작은게 나오면 그때 정렬해서 출력하는걸로???
+
+def recursion_minus(li, num):
+
+    if num > 5:
+        num = 1
+
+    value = li[0] - num
+
+    if value <= 0:
+        value = 0
+        li = li[1:] + [value]
+        return li
+
+    li = li[1:] + [value]
+    return  recursion_minus(li, num+1)
+
+
+
 t = 10
 for tc in range(1,1+t):
     n = int(input())
     arr = list(map(int,input().split()))
-    q = deque(arr)
+    arr = recursion_minus(arr,1)
+    print(arr)
