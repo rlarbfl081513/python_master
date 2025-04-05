@@ -39,12 +39,12 @@ from collections import deque
 
 
 ## 재귀로 풀기
-## 굳이 움직임을 만들지 않고 그냥 차례대로 빼면서 하다가 0이 나오거나 0보다 작은게 나오면 그때 정렬해서 출력하는걸로???
-
+## 오직 재귀로만 풀려고하면 안됨...조건을 통해 멈추게한다고 해도 재귀이기에 결국은 엄청나게 많인 돈다.
+## 굳이 재귀를 쓴다면 1-5까지 도는걸 재귀로하고, 0이 나올떄까지 돌리는건 와일문을 통해 구현한다.
 def recursion_minus(li, num):
 
     if num > 5:
-        num = 1
+        return li
 
     value = li[0] - num
 
@@ -54,13 +54,46 @@ def recursion_minus(li, num):
         return li
 
     li = li[1:] + [value]
-    return  recursion_minus(li, num+1)
+    return recursion_minus(li, num+1)
 
 
-
-t = 10
+t = 1
 for tc in range(1,1+t):
     n = int(input())
     arr = list(map(int,input().split()))
-    arr = recursion_minus(arr,1)
-    print(arr)
+
+    while True:
+        arr = recursion_minus(arr,1)
+        if arr[-1] == 0:
+            break
+
+    print(f'#{tc}', *arr)
+
+
+# ## 재귀..절망편
+# # 인풋이 작다면 아래처럼 냅다 재귀돌려서 초과안남
+# def recursion_minus(li, num):
+#
+#     if num > 5:
+#         num = 1
+#
+#     value = li[0] - num
+#
+#     if value <= 0:
+#         value = 0
+#         li = li[1:] + [value]
+#         return li
+#
+#     li = li[1:] + [value]
+#     return recursion_minus(li, num+1)
+#
+#
+#
+# t = 1
+# for tc in range(1,1+t):
+#     n = int(input())
+#     arr = list(map(int,input().split()))
+#
+#     a = recursion_minus(arr,1)
+#
+#     print(f'#{tc} {a}')
