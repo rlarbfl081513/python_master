@@ -24,6 +24,7 @@ def dijkstra_snow(start_i,start_j):
     q = [(0,0, start_i, start_j)]
 
     while q:
+
         gaze,dis, now_y, now_x = heapq.heappop(q)
 
         # 보석에 도착하면 그만해
