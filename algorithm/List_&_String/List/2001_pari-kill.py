@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("../IM/input.txt")
+sys.stdin = open("../../../IM/input.txt")
 
 
 # n*n의 배열에 각 칸에 파리가 있다
