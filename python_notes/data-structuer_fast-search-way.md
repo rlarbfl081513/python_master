@@ -127,6 +127,11 @@ for tc in range(1, T + 1):
 ```
 
 ---
+## ✅ 예시 코드: 성실한 사원
+- dat의 런타임에러시, 범위를 너무 크게 잡은거니까 
+- 인풋에 따라 dat 리스트의 길이를 조정할 수 있도록 한다.
+- [swea : 성실한 사원](../algorithm/List_&_String/List/21463_DAT-good-staft.py)
+---
 
 ## ✅ 정리
 | 항목 | 설명 |

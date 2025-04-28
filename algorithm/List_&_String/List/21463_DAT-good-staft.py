@@ -13,33 +13,36 @@ sys.stdin = open("input.txt")
 ## 아 근데 이 방법도 너무 오래걸리는게 그냥 냅다 10000001 길이의 리스트를 만들어버려서 오래걸림
 ## ---> 인풋으로 받는 사원번호 중 가장 큰 번호를 기준으로 dat 리스트 범위를 제한하는게 좋을듯
 t = int(input())
-for tc in range(1,1+t):
-    h,w = map(int,input().split())
+for tc in range(1, 1 + t):
+    h, w = map(int, input().split())
 
-    # DAT를 위한 리스트
-    DAT_person = [0]*10000001
-
-    # 입력 받으면서 바로 리스트에 출근횟수 카운트하기
+    # 먼저 모든 사원번호를 수집
+    all_numbers = []
     for _ in range(h):
-        li = list(map(int,input().split()))
-        for item in li:
-            DAT_person[item] += 1
+        li = list(map(int, input().split()))
+        all_numbers.extend(li)
 
-    # 최대 출근횟수
+    # 가장 큰 사원번호 찾기
+    max_number = max(all_numbers)
+
+    # 필요한 만큼만 DAT 배열 생성
+    DAT_person = [0] * (max_number + 1)
+
+    # 출근 횟수 카운트
+    for item in all_numbers:
+        DAT_person[item] += 1
+
+    # 최대 출근횟수와 그 사원번호 찾기
     max_go = 0
-    # 최대로 출근한 사원의 번호
     max_person = 0
-    # 리스트를 돌면서 가장 출근을 많이 한 횟수와 동시에 가장 사원번호가 작은 사람 찾기
-    for i in range(1,10000001):
+    for i in range(1, max_number + 1):
         if DAT_person[i] > max_go:
             max_go = DAT_person[i]
             max_person = i
-        # 최대 출근횟수가 동일하다면 더 작은 사원번호 가진 사람으로 바꾸기
-        elif max_go == DAT_person[i] and max_person > i:
+        elif DAT_person[i] == max_go and i < max_person:
             max_person = i
 
     print(f'#{tc} {max_person}')
-
 
 
 
