@@ -277,7 +277,7 @@ for col in zip(*matrix):
 
 ---
 
-## ✅ 정리 요약
+## 정리 요약
 
 | 기능 | 설명 |
 |------|------|
@@ -287,7 +287,58 @@ for col in zip(*matrix):
 -- |
 
 ---
-다음은 위에서 다룬 **리스트 vs 집합의 탐색 성능** 차이와, 이를 활용한 시간 최적화 팁을 정리한 마크다운입니다:
+# ✅ enumerate
+
+* 리스트를 순회할 때 **인덱스(index)와 값(value)** 를 동시에 가지고 오른 방식.
+
+* 기본 형식:
+
+  ```python
+  for index, value in enumerate(리스트):
+      ...
+  ```
+
+* 시작 인덱스를 지정할 수도 있음:
+
+  ```python
+  for index, value in enumerate(리스트, start=1):
+      ...
+  ```
+
+#### ✅ 예제
+
+```python
+nums = [10, 20, 30]
+for i, val in enumerate(nums):
+    print(i, val)
+# 결과:
+# 0 10
+# 1 20
+# 2 30
+```
 
 ---
+
+# ✅dict (dictionary)
+
+* 키(key)와 값(value)
+
+#### ✅ 예제
+
+```python
+nums = [1, 2, 1, 3, 2, 1]
+count = {}
+for n in nums:
+    count[n] = count.get(n, 0) + 1
+print(count)
+# 결과: {1: 3, 2: 2, 3: 1}
+```
+
+#### ✅ `dict.items()` 를 이용해 순회
+
+```python
+for key, value in count.items():
+    print(f"{key}는 {value}번 나왔어요")
+```
+
 ---
